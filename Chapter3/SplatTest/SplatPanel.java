@@ -32,7 +32,7 @@ public class SplatPanel extends JPanel
 					y += 60;
 				}
 				
-			}
+			} 
 			x = 10;
 			y = 130;
 		midC = new Circle[40];
