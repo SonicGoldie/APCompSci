@@ -15,8 +15,10 @@ public class SmallStraightCheck
 		num4 = new NumCount(D1, D2, D3, D4, D5, 4);
 		num5 = new NumCount(D1, D2, D3, D4, D5, 5);
 		num6 = new NumCount(D1, D2, D3, D4, D5, 6);
+		//System.out.println("" + num1.count + "" + num2.count + "" + num3.count + "" + num4.count + "" + num5.count + "" + num6.count);
 		if ((num1.count >= 1) && (num2.count >= 1) && (num3.count >= 1) && (num4.count >= 1) )
 		{
+			
 			SmallStraight = true;
 		}
 		if ((num2.count >= 1) && (num3.count >= 1) && (num4.count >= 1) && (num5.count >=1) )

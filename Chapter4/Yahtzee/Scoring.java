@@ -81,7 +81,7 @@ public class Scoring
 		kind = new KindCheck(D1, D2, D3, D4, D5, 4);
 		if (kind.kind ==1)
 		{
-			scoreThreeOAK = (D1 + D2 + D3 + D4 + D5);
+			scoreFourOAK = (D1 + D2 + D3 + D4 + D5);
 		}
 	}
 	public void FullHouse(int D1, int D2, int D3, int D4, int D5)
@@ -89,7 +89,7 @@ public class Scoring
 		scoreFH = 0;
 		FullHouseCheck FH;
 		FH = new FullHouseCheck(D1, D2, D3, D4, D5);
-		if (FH.FullHouse = true)
+		if (FH.FullHouse == true)
 		{
 			scoreFH = 25;
 		}
@@ -99,7 +99,7 @@ public class Scoring
 		scoreSS = 0;
 		SmallStraightCheck SS;
 		SS = new SmallStraightCheck(D1, D2, D3, D4, D5);
-		if (SS.SmallStraight = true)
+		if (SS.SmallStraight == true)
 		{
 			scoreSS = 30;
 		}
@@ -109,10 +109,14 @@ public class Scoring
 		scoreLS = 0;
 		LargeStraightCheck LS;
 		LS = new LargeStraightCheck(D1, D2, D3, D4, D5);
-		if (LS.LargeStraight = true)
+		if (LS.LargeStraight == true)
 		{
 			scoreLS = 40;
 		}	
+	}
+	public void Chance(int D1, int D2, int D3, int D4, int D5)
+	{
+		scoreChance = D1 + D2 + D3 + D4 + D5;
 	}
 	public void Yahtzee(int D1, int D2, int D3, int D4, int D5)
 	{
