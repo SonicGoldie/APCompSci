@@ -11,7 +11,7 @@ public class Scoring
 		num = new NumCount(D1, D2, D3, D4, D5, 1);
 		if (num.count >= 1)
 		{
-		scoreOnes = (num.count * 1);
+		scoreOnes = (num.count * 1);	
 		}
 	}
 	public void Twos(int D1, int D2, int D3, int D4, int D5)
