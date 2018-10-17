@@ -1,13 +1,24 @@
 package Yahtzee;
 
 import javax.swing.JPanel;
+import java.awt.*;
 
 public class ScoringPanel extends JPanel
 {
 	Scoring score = new Scoring();
 	SmallStraightCheck test;
+	private Square[] Row1, Row2, Row3;
+	private Square Outline, Outline1;
 	public ScoringPanel(int D1, int D2, int D3, int D4, int D5)
 	{
+		setPreferredSize(new Dimension(450, 1000));
+		setBackground(Color.cyan);
+		Row1 = new Square[18];
+		for(int s = 0; s < Row1.length; s++)
+		{
+			
+		}
+		
 		score.Ones(D1, D2, D3, D4, D5);
 		score.Twos(D1, D2, D3, D4, D5);
 		score.Threes(D1, D2, D3, D4, D5);
@@ -23,18 +34,7 @@ public class ScoringPanel extends JPanel
 		score.Chance(D1, D2, D3, D4, D5);
 		
 		System.out.println("" + D1 + "" + D2 + "" + D3 + "" + D4 + "" + D5 + "");
-		System.out.println("Ones: " + score.scoreOnes);
-		System.out.println("Twos: " +score.scoreTwos);
-		System.out.println("Threes: " +score.scoreThrees);
-		System.out.println("Fours: " + score.scoreFours);
-		System.out.println("Fives: " + score.scoreFives);
-		System.out.println("Sixes: " + score.scoreSixes);
-		System.out.println("Three of a Kind: " + score.scoreThreeOAK);
-		System.out.println("Four of a Kind: " + score.scoreFourOAK);
-		System.out.println("Full House: " + score.scoreFH);
-		System.out.println("Small Straight: " + score.scoreSS);
-		System.out.println("Large Straight: " + score.scoreLS);
-		System.out.println("Chance: " + score.scoreChance);
-		System.out.println("Yahtzee: " + score.scoreYahtzee);
+				
 	}
+	
 }
