@@ -4,6 +4,7 @@ public class Scoring
 {
 	int scoreOnes, scoreTwos, scoreThrees, scoreFours, scoreFives, scoreSixes;
 	int scoreThreeOAK, scoreFourOAK, scoreFH, scoreSS, scoreLS, scoreChance, scoreYahtzee;
+	int scoreSum, scoreBonus, scoreTotal;
 	public void Ones(int D1, int D2, int D3, int D4, int D5)
 	{
 		scoreOnes = 0;
@@ -128,4 +129,21 @@ public class Scoring
 			scoreYahtzee = 50;
 		}
 	}
+	public void Sum(int D1, int D2, int D3, int D4, int D5)
+	{
+		scoreSum = scoreOnes + scoreTwos + scoreThrees + scoreFours + scoreFives + scoreSixes;
+	}
+	public void Bonus(int D1, int D2, int D3, int D4, int D5)
+	{
+		scoreBonus = 0;
+		if(scoreSum >= 63)
+		{
+			scoreBonus = 35;
+		}
+	}
+	public void Total(int D1, int D2, int D3, int D4, int D5)
+	{
+		scoreTotal = scoreOnes + scoreTwos + scoreThrees + scoreFours + scoreFives + scoreSixes + scoreThreeOAK + scoreFourOAK + scoreFH + scoreSS + scoreLS + scoreChance + scoreYahtzee;
+	}
 }
+

@@ -7,26 +7,30 @@ import java.util.Random;
 import javax.swing.*;
 																				
 public class playPanel extends JPanel{
-	
+	SlataSolution s;
 	openSquare[] outline;
 	Square[] sq, dice;
 	Circle[] dots;
 	JButton[] diceButton;
 	JButton roll = new JButton();
 	Random gen = new Random();
+	ScoringPanel Panel;
 	int die1, die2, die3, die4, die5, die6, die7, die8, die9, die10;
 	int counter, o, x, y, db = 0;
+	int D1, D2, D3, D4, D5;
 	Color color;
 	boolean player1 = false, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10;
 	boolean[] dnum;
 	
-	public playPanel() {
+	public playPanel() 
+	{
+		
 		//Sets Button
 		roll.setBounds(650, 450, 100, 40);
 		roll.setOpaque(true);
 		roll.setText("Roll dice");
 		
-		//Sets Arrays
+		//Sets Arrays list sizes
 		outline = new openSquare[10];
 		sq = new Square[20];
 		dice = new Square[10];
@@ -38,7 +42,7 @@ public class playPanel extends JPanel{
 		setPreferredSize(new Dimension(1000, 1000));
 		this.setBackground(Color.lightGray);
 		
-		//sets 
+		//sets Bottome Pulling Dice
 		x = 200; y = 600;
 			
 		for(int s = 0; s < sq.length; s++) 
@@ -61,6 +65,8 @@ public class playPanel extends JPanel{
 				x = 200;
 			}
 		}
+		
+		//sets Top Buttons
 		x = 200;
 		y = 300;
 		for(db = 0; db < diceButton.length; db++) 
@@ -85,6 +91,7 @@ public class playPanel extends JPanel{
 			}
 		}
 		
+		//sets Top Die
 		x = 200; y = 700;
 		
 		for(int d = 0; d < dice.length; d++) 
@@ -112,6 +119,7 @@ public class playPanel extends JPanel{
 			}
 		}
 		
+		// sets Top Dots
 		x = 125; y = 750;
 		color = Color.black;
 		for(o = 0; o < dots.length; o++) 
@@ -138,7 +146,7 @@ public class playPanel extends JPanel{
 			dots[o] = new Circle(10, color, x, y);
 		}	
 			
-	
+		//sets Roll Die for Player 1
 		counter = 0;
 		roll.addActionListener(new ActionListener()		
 		{     	
@@ -146,29 +154,29 @@ public class playPanel extends JPanel{
 			
 			if(player1 == true)
 			{
-			if(counter < 3) {
+				if(counter < 3) 
+				{
 				
-			if(d1 == false) 
-			{
-			die1 = gen.nextInt(6)+1; 
-			}
-			if(d2 == false) 
-			{
-			die2 = gen.nextInt(6)+1; 
-			}
-			if(d3 == false) 
-			{
-			die3 = gen.nextInt(6)+1; 
-			} 
-			if(d4 == false) 
-			{
-			die4 = gen.nextInt(6)+1; 
-			} 
-			if(d5 == false) 
-			{
-			die5 = gen.nextInt(6)+1; 
-			}
-			ScoringPanel score = new ScoringPanel(die1, die2, die3, die4, die5);
+					if(d1 == false) 
+					{
+						die1 = gen.nextInt(6)+1; 
+					}
+					if(d2 == false) 
+					{
+						die2 = gen.nextInt(6)+1; 
+					}
+					if(d3 == false) 
+					{
+						die3 = gen.nextInt(6)+1; 
+					} 
+					if(d4 == false) 
+					{
+						die4 = gen.nextInt(6)+1; 
+					} 
+					if(d5 == false) 
+					{
+						die5 = gen.nextInt(6)+1; 
+					}
 			}
 			counter++;
 				
@@ -737,6 +745,7 @@ public class playPanel extends JPanel{
 				{
 				dots[o] = new Circle(10, color, x, y);	
 				}
+				s.repaint();
 			}	
 			}	
 			
@@ -764,7 +773,9 @@ public class playPanel extends JPanel{
 			{
 			die10 = gen.nextInt(6)+1; 
 			}
+			
 			//}
+			
 			counter++;
 				
 				y = 600;
@@ -1344,7 +1355,8 @@ public class playPanel extends JPanel{
 				dots[o] = new Circle(10, color, x, y-300);	
 				}
 			}	
-			}	
+			}
+			s.repaint();
 
 			repaint();
 	    }
@@ -1357,7 +1369,8 @@ public class playPanel extends JPanel{
 			
 			diceButton[0].addActionListener(new ActionListener()		
 			{     	
-			public void actionPerformed(ActionEvent e){  
+			public void actionPerformed(ActionEvent e){ 
+				
 		        
 					dice[5] = new Square(70, Color.white, 200, 200);
 					d6 = true;

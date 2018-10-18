@@ -1,5 +1,6 @@
 package Yahtzee;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.*;
 
@@ -7,10 +8,12 @@ public class ScoringPanel extends JPanel
 {
 	Scoring score = new Scoring();
 	SmallStraightCheck test;
+	JLabel Test;
 	private Square[] Row1, Row2, Row3;
 	private Square Outline, Outline1;
 	public ScoringPanel(int D1, int D2, int D3, int D4, int D5)
 	{
+		Test = new JLabel("Test");
 		setPreferredSize(new Dimension(450, 1000));
 		setBackground(Color.cyan);
 		Row1 = new Square[18];
@@ -32,6 +35,11 @@ public class ScoringPanel extends JPanel
 		score.LS(D1, D2, D3, D4, D5);
 		score.Yahtzee(D1, D2, D3, D4, D5);
 		score.Chance(D1, D2, D3, D4, D5);
+		score.Sum(D1, D2, D3, D4, D5);
+		score.Bonus(D1, D2, D3, D4, D5);
+		score.Total(D1, D2, D3, D4, D5);
+		
+		
 		
 		System.out.println("" + D1 + "" + D2 + "" + D3 + "" + D4 + "" + D5 + "");
 				
