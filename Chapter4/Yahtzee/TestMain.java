@@ -4,145 +4,78 @@ import java.util.Random;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionAdapter;
+
 import javax.swing.border.*;
+
+
+
 
 public class TestMain {
 	Random rand = new Random();
-	static JLabel[] Labels;
-	static JPanel[] Panels;
-	static ScoringPanel SPanel;
+	//Labels for scores
+	public static JLabel p1oneslabel = new JLabel();
+	public static JLabel p1twoslabel = new JLabel();
+	public static JLabel p1threeslabel = new JLabel();
+	public static JLabel p1fourslabel = new JLabel();
+	public static JLabel p1fiveslabel = new JLabel();
+	public static JLabel p1sixeslabel = new JLabel();
+    public static JLabel p1sumsLabel = new JLabel();
+    public static JLabel p1threeOAKLabel = new JLabel();
+    public static JLabel p1fourOAKLabel = new JLabel();
+	public static JLabel p1fullhouseLabel = new JLabel();
+	public static JLabel p1ssLabel = new JLabel();
+	public static JLabel p1lsLabel = new JLabel();
+	public static JLabel p1yahtzeeLabel= new JLabel();
+	public static JLabel p1chanceLabel = new JLabel();
 	
+	public static JLabel p2oneslabel = new JLabel();
+	public static JLabel p2onesLabel = new JLabel();
+	public static JLabel p2twoslabel = new JLabel();
+	public static JLabel p2threeslabel = new JLabel();
+	public static JLabel p2fourslabel = new JLabel();
+	public static JLabel p2fiveslabel = new JLabel();
+	public static JLabel p2sixeslabel = new JLabel();
+    public static JLabel p2sumsLabel = new JLabel();
+    public static JLabel p2threeOAKLabel = new JLabel();
+    public static JLabel p2fourOAKLabel = new JLabel();
+	public static JLabel p2fullhouseLabel = new JLabel();
+	public static JLabel p2ssLabel = new JLabel();
+	public static JLabel p2lsLabel = new JLabel();
+	public static JLabel p2yahtzeeLabel= new JLabel();
+	public static JLabel p2chanceLabel = new JLabel();
 	
-	public static void SetValues()
+
+	public static void main(String[] args) 
 	{
-		
-	}
-	public static void main(String[] args) throws InterruptedException 
-	{
-		
+			
+		//declariations
+		Scoring score;
 		JFrame frame = new JFrame("Test");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBackground(Color.cyan);
+		Font labelfont;
 		
-		/*SPanel = new ScoringPanel(1,2,2,3,4);
 		
+		playPanel playPanel = new playPanel();
+		ScoringPanel Panel = new ScoringPanel(playPanel.die6, playPanel.die7, playPanel.die8, playPanel.die9, playPanel.die10);
+		//public static ScoringPanel Panel = new ScoringPanel(playPanel.die6, playPanel.die7, playPanel.die8, playPanel.die9, playPanel.die10);
+		//ScoringPanel Panel = new ScoringPanel(playPanel.die6, playPanel.die7, playPanel.die8, playPanel.die9, playPanel.die10);
+		//public score = new Scoring();
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(0,3,0,0));
 		panel.setBorder(BorderFactory.createEmptyBorder(8,8,8,8));
 		panel.setBackground(Color.cyan);
-		panel.setPreferredSize(new Dimension(450, 1000));
-			
-		Labels = new JLabel[54];
-		Panels = new JPanel[54];
-		for(int l = 0; l < Labels.length; l++)
-		{
-			Labels[l] = new JLabel();	
-			
-		}
-		for(int p = 0; p < Panels.length; p++)
-		{
-			Panels[p] = new JPanel();
-			Panels[p].setBorder(BorderFactory.createLineBorder(Color.white, 2));
-			Panels[p].setBackground(Color.cyan);
-			Panels[p].add(Labels[p]);
-			panel.add(Panels[p]);
-			
-		}
 		
-		
-		
-		Labels[1].setText("Player 1");
-		Labels[2].setText("Player 2");
-		Labels[3].setText("Ones");
-		Labels[4].setText("" + SPanel.score.scoreOnes);
-		Labels[5].setText("" + SPanel.score.scoreOnes);
-		Labels[6].setText("Twos");
-		Labels[7].setText("" + SPanel.score.scoreTwos);
-		Labels[8].setText("" + SPanel.score.scoreTwos);
-		Labels[9].setText("Threes");
-		Labels[10].setText("" + SPanel.score.scoreThrees);
-		Labels[11].setText("" + SPanel.score.scoreThrees);
-		Labels[12].setText("Fours");
-		Labels[13].setText("" + SPanel.score.scoreFours);
-		Labels[14].setText(""  + SPanel.score.scoreFours);
-		Labels[15].setText("Fives");
-		Labels[16].setText(""  + SPanel.score.scoreFives);
-		Labels[17].setText(""  + SPanel.score.scoreFives);
-		Labels[18].setText("Sixes");
-		Labels[19].setText(""  + SPanel.score.scoreSixes);
-		Labels[20].setText(""  + SPanel.score.scoreSixes);
-		Panels[21].setBackground(Color.blue);
-		Labels[21].setText("Sum");
-		Panels[22].setBackground(Color.blue);
-		Labels[22].setText("" + SPanel.score.scoreSum);
-		Panels[23].setBackground(Color.blue);
-		Labels[23].setText("" + SPanel.score.scoreSum);
-		Panels[24].setBackground(Color.blue);
-		Labels[24].setText("Bonus");
-		Panels[25].setBackground(Color.blue);
-		Labels[25].setText("" + SPanel.score.scoreBonus);
-		Panels[26].setBackground(Color.blue);
-		Labels[26].setText("" + SPanel.score.scoreBonus);
-		Labels[27].setText("Three Of A Kind");
-		Labels[28].setText("" + SPanel.score.scoreThreeOAK);
-		Labels[29].setText("" + SPanel.score.scoreThreeOAK);
-		Labels[30].setText("Four Of A Kind");
-		Labels[31].setText("" + SPanel.score.scoreFourOAK);
-		Labels[32].setText("" + SPanel.score.scoreFourOAK);
-		Labels[33].setText("Full House");
-		Labels[34].setText("" + SPanel.score.scoreFH);
-		Labels[35].setText("" + SPanel.score.scoreFH);
-		Labels[36].setText("Small Straight");
-		Labels[37].setText("" + SPanel.score.scoreSS);
-		Labels[38].setText("" + SPanel.score.scoreSS);
-		Labels[39].setText("Large Straight");
-		Labels[40].setText("" + SPanel.score.scoreLS);
-		Labels[41].setText("" + SPanel.score.scoreLS);
-		Labels[42].setText("Chance");
-		Labels[43].setText("" + SPanel.score.scoreChance);
-		Labels[44].setText("" + SPanel.score.scoreChance);
-		Labels[45].setText("Yahtzee");
-		Labels[46].setText("" + SPanel.score.scoreYahtzee);
-		Labels[47].setText("" + SPanel.score.scoreYahtzee);
-		Panels[48].setBackground(Color.blue);
-		Labels[48].setText("Bonus");
-		Panels[49].setBackground(Color.blue);
-		Labels[49].setText("" + 0);
-		Panels[50].setBackground(Color.blue);
-		Labels[50].setText("" + 0);
-		Panels[51].setBackground(Color.blue);
-		Labels[51].setText("Total Score");
-		Panels[52].setBackground(Color.blue);
-		Labels[52].setText("" + SPanel.score.scoreTotal);
-		Panels[53].setBackground(Color.blue);
-		Labels[53].setText("" + + SPanel.score.scoreTotal);*/
-
-
-
-
-
-
-
-
-
-		
-		
-		
-		
-		
-		
-		playPanel playPanel = new playPanel();
-		/*ScoringPanel Panel1 = new ScoringPanel(playPanel.die1, playPanel.die2, playPanel.die3, playPanel.die4, playPanel.die5);
-		ScoringPanel Panel2 = new ScoringPanel(playPanel.die6, playPanel.die7, playPanel.die8, playPanel.die9, playPanel.die10);
-		int OneScore = Panel1.score.scoreOnes;
-		JLabel test = new JLabel("" + OneScore);
-		
-		
-				
-		
-		Panels[0].setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		Blank.setBackground(Color.cyan);
+		JPanel Blank = new JPanel();
+		Blank.setBorder(BorderFactory.createLineBorder(Color.white, 2));
 		Blank.add(new JLabel(""));
+		Blank.setBackground(Color.cyan);
 		panel.add(Blank);
 		
 		JPanel You = new JPanel();
@@ -163,17 +96,27 @@ public class TestMain {
 		Ones.setBackground(Color.cyan);
 		panel.add(Ones);
 		
-		
 		JPanel OneScoreYou = new JPanel();
 		OneScoreYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		OneScoreYou.add(test);
-		test.setText("" + 7);
+		OneScoreYou.add(p1oneslabel);
+		p1oneslabel.putClientProperty("myName",1);
 		OneScoreYou.setBackground(Color.cyan);
 		panel.add(OneScoreYou);
+
+		// attach mouse click listener to the jlabels
+		Component mouseClick = new MyComponent()  ;
+		p1oneslabel.addMouseListener((MouseListener) mouseClick);
+		// Set the font to be non-bold
+		labelfont = p1oneslabel.getFont();
+// This label initially is notset
+		p1oneslabel.putClientProperty("scoreNotSet",true);
+// Set the font to non-bold
+		p1oneslabel.setFont(labelfont.deriveFont(labelfont.getStyle() & ~Font.BOLD));
 		
 		JPanel OneScoreP2 = new JPanel();
 		OneScoreP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		OneScoreP2.add(new JLabel("" + Panel2.score.scoreOnes));
+		OneScoreP2.add(p2onesLabel);
+		//OneScoreP2.add(new JLabel("" + Panel.score.scoreOnes));
 		OneScoreP2.setBackground(Color.cyan);
 		panel.add(OneScoreP2);
 		
@@ -185,13 +128,19 @@ public class TestMain {
 		
 		JPanel TwoScoreYou = new JPanel();
 		TwoScoreYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		TwoScoreYou.add(new JLabel("" + Panel1.score.scoreTwos));
+		TwoScoreYou.add(p1twoslabel);
+		p1twoslabel.putClientProperty("myName",2);
+		labelfont = p1oneslabel.getFont();
+		p1twoslabel.setFont(labelfont.deriveFont(labelfont.getStyle() & ~Font.BOLD));
+		
+		//TwoScoreYou.add(new JLabel("" + Panel.score.scoreTwos));
 		TwoScoreYou.setBackground(Color.cyan);
 		panel.add(TwoScoreYou);
+		p1twoslabel.addMouseListener((MouseListener) mouseClick);
 		
 		JPanel TwoScoreP2 = new JPanel();
 		TwoScoreP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		TwoScoreP2.add(new JLabel("" + Panel2.score.scoreTwos));
+		TwoScoreP2.add(new JLabel("" + Panel.score.scoreTwos));
 		TwoScoreP2.setBackground(Color.cyan);
 		panel.add(TwoScoreP2);
 		
@@ -203,13 +152,14 @@ public class TestMain {
 		
 		JPanel ThreeScoreYou = new JPanel();
 		ThreeScoreYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		ThreeScoreYou.add(new JLabel("" + Panel1.score.scoreThrees));
+		ThreeScoreYou.add(p1threeslabel);
+		//ThreeScoreYou.add(new JLabel("" + Panel.score.scoreThrees));
 		ThreeScoreYou.setBackground(Color.cyan);
 		panel.add(ThreeScoreYou);
 		
 		JPanel ThreeScoreP2 = new JPanel();
 		ThreeScoreP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		ThreeScoreP2.add(new JLabel("" + Panel2.score.scoreThrees));
+		ThreeScoreP2.add(new JLabel("" + Panel.score.scoreThrees));
 		ThreeScoreP2.setBackground(Color.cyan);
 		panel.add(ThreeScoreP2);
 		
@@ -221,13 +171,14 @@ public class TestMain {
 		
 		JPanel FourScoreYou = new JPanel();
 		FourScoreYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		FourScoreYou.add(new JLabel("" + Panel1.score.scoreFours));
+		FourScoreYou.add(p1fourslabel);
+		//FourScoreYou.add(new JLabel("" + Panel.score.scoreFours));
 		FourScoreYou.setBackground(Color.cyan);
 		panel.add(FourScoreYou);
 		
 		JPanel FourScoreP2 = new JPanel();
 		FourScoreP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		FourScoreP2.add(new JLabel("" + Panel2.score.scoreFours));
+		FourScoreP2.add(new JLabel("" + Panel.score.scoreFours));
 		FourScoreP2.setBackground(Color.cyan);
 		panel.add(FourScoreP2);
 		
@@ -239,13 +190,14 @@ public class TestMain {
 		
 		JPanel FiveScoreYou = new JPanel();
 		FiveScoreYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		FiveScoreYou.add(new JLabel("" + Panel1.score.scoreFives));
+		FiveScoreYou.add(p1fiveslabel);
+		//FiveScoreYou.add(new JLabel("" + Panel.score.scoreFives));
 		FiveScoreYou.setBackground(Color.cyan);
 		panel.add(FiveScoreYou);
 		
 		JPanel FiveScoreP2 = new JPanel();
 		FiveScoreP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		FiveScoreP2.add(new JLabel("" + Panel2.score.scoreFives));
+		FiveScoreP2.add(new JLabel("" + Panel.score.scoreFives));
 		FiveScoreP2.setBackground(Color.cyan);
 		panel.add(FiveScoreP2);
 		
@@ -257,34 +209,39 @@ public class TestMain {
 		
 		JPanel SixScoreYou = new JPanel();
 		SixScoreYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		SixScoreYou.add(new JLabel("" + Panel1.score.scoreSixes));
+		SixScoreYou.add(p1sixeslabel);
+		//SixScoreYou.add(new JLabel("" + Panel.score.scoreSixes));
 		SixScoreYou.setBackground(Color.cyan);
 		panel.add(SixScoreYou);
 		
 		JPanel SixScoreP2 = new JPanel();
 		SixScoreP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		SixScoreP2.add(new JLabel("" + Panel2.score.scoreSixes));
+		SixScoreP2.add(new JLabel("" + Panel.score.scoreSixes));
 		SixScoreP2.setBackground(Color.cyan);
 		panel.add(SixScoreP2);
 		
 		JPanel Sum = new JPanel();
 		Sum.setBorder(BorderFactory.createLineBorder(Color.white, 2));
 		Sum.add(new JLabel("Sum"));
-		Sum.setBackground(Color.blue);
+		Sum.setBackground(Color.green);
 		panel.add(Sum);
 		
 		JPanel SumYou = new JPanel();
 		SumYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		SumYou.add(new JLabel("" + Panel1.score.scoreOnes + Panel1.score.scoreTwos + Panel1.score.scoreThrees + Panel1.score.scoreFours + Panel1.score.scoreFives + Panel1.score.scoreSixes));
-		SumYou.setBackground(Color.blue);
+		SumYou.add(p1sumsLabel);
+//		new JLabel("" + Panel.score.scoreOnes + Panel.score.scoreTwos + Panel.score.scoreThrees + Panel.score.scoreFours + Panel.score.scoreFives + Panel.score.scoreSixes));
+		SumYou.setBackground(Color.green);
 		panel.add(SumYou);
+		
+
 		
 		JPanel SumP2 = new JPanel();
 		SumP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		SumP2.add(new JLabel("" + Panel2.score.scoreOnes + Panel2.score.scoreTwos + Panel2.score.scoreThrees + Panel2.score.scoreFours + Panel2.score.scoreFives + Panel2.score.scoreSixes));
-		SumP2.setBackground(Color.blue);
+		SumP2.add(new JLabel("" + Panel.score.scoreOnes + Panel.score.scoreTwos + Panel.score.scoreThrees + Panel.score.scoreFours + Panel.score.scoreFives + Panel.score.scoreSixes));
+		SumP2.setBackground(Color.green);
 		panel.add(SumP2);
 		
+	
 		
 		JPanel ThreeOAK = new JPanel();
 		ThreeOAK.setBorder(BorderFactory.createLineBorder(Color.white, 2));
@@ -294,13 +251,13 @@ public class TestMain {
 		
 		JPanel ThreeOAKcoreYou = new JPanel();
 		ThreeOAKcoreYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		ThreeOAKcoreYou.add(new JLabel("" + Panel1.score.scoreThreeOAK));
+		ThreeOAKcoreYou.add(p1threeOAKLabel);
 		ThreeOAKcoreYou.setBackground(Color.cyan);
 		panel.add(ThreeOAKcoreYou);
 		
 		JPanel ThreeOAKcoreP2 = new JPanel();
 		ThreeOAKcoreP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		ThreeOAKcoreP2.add(new JLabel("" + Panel2.score.scoreThreeOAK));
+		ThreeOAKcoreP2.add(new JLabel("" + Panel.score.scoreThreeOAK));
 		ThreeOAKcoreP2.setBackground(Color.cyan);
 		panel.add(ThreeOAKcoreP2);
 		
@@ -312,13 +269,15 @@ public class TestMain {
 		
 		JPanel FourOAKcoreYou = new JPanel();
 		FourOAKcoreYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		FourOAKcoreYou.add(new JLabel("" + Panel1.score.scoreFourOAK));
+		FourOAKcoreYou.add(p1fourOAKLabel);
 		FourOAKcoreYou.setBackground(Color.cyan);
 		panel.add(FourOAKcoreYou);
 		
+	
+	
 		JPanel FourOAKcoreP2 = new JPanel();
 		FourOAKcoreP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		FourOAKcoreP2.add(new JLabel("" + Panel2.score.scoreFourOAK));
+		FourOAKcoreP2.add(new JLabel("" + Panel.score.scoreFourOAK));
 		FourOAKcoreP2.setBackground(Color.cyan);
 		panel.add(FourOAKcoreP2);
 		
@@ -330,13 +289,13 @@ public class TestMain {
 		
 		JPanel FullHousecoreYou = new JPanel();
 		FullHousecoreYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		FullHousecoreYou.add(new JLabel("" + Panel1.score.scoreFH));
+		FullHousecoreYou.add(p1fullhouseLabel);
 		FullHousecoreYou.setBackground(Color.cyan);
 		panel.add(FullHousecoreYou);
 		
 		JPanel FullHousecoreP2 = new JPanel();
 		FullHousecoreP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		FullHousecoreP2.add(new JLabel("" + Panel2.score.scoreFH));
+		FullHousecoreP2.add(new JLabel("" + Panel.score.scoreFH));
 		FullHousecoreP2.setBackground(Color.cyan);
 		panel.add(FullHousecoreP2);
 		
@@ -348,13 +307,14 @@ public class TestMain {
 		
 		JPanel SScoreYou = new JPanel();
 		SScoreYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		SScoreYou.add(new JLabel("" + Panel1.score.scoreSS));
+		SScoreYou.add(p1ssLabel);
 		SScoreYou.setBackground(Color.cyan);
 		panel.add(SScoreYou);
 		
+
 		JPanel SScoreP2 = new JPanel();
 		SScoreP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		SScoreP2.add(new JLabel("" + Panel2.score.scoreSS));
+		SScoreP2.add(new JLabel("" + Panel.score.scoreSS));
 		SScoreP2.setBackground(Color.cyan);
 		panel.add(SScoreP2);
 		
@@ -366,13 +326,13 @@ public class TestMain {
 		
 		JPanel LScoreYou = new JPanel();
 		LScoreYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		LScoreYou.add(new JLabel("" + Panel1.score.scoreLS));
+		LScoreYou.add(p1lsLabel);
 		LScoreYou.setBackground(Color.cyan);
 		panel.add(LScoreYou);
 		
 		JPanel LScoreP2 = new JPanel();
 		LScoreP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		LScoreP2.add(new JLabel("" + Panel2.score.scoreLS));
+		LScoreP2.add(new JLabel("" + Panel.score.scoreLS));
 		LScoreP2.setBackground(Color.cyan);
 		panel.add(LScoreP2);
 		
@@ -384,13 +344,13 @@ public class TestMain {
 		
 		JPanel ChancecoreYou = new JPanel();
 		ChancecoreYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		ChancecoreYou.add(new JLabel("" + Panel1.score.scoreChance));
+		ChancecoreYou.add(p1chanceLabel);
 		ChancecoreYou.setBackground(Color.cyan);
 		panel.add(ChancecoreYou);
 		
 		JPanel ChancecoreP2 = new JPanel();
 		ChancecoreP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		ChancecoreP2.add(new JLabel("" + Panel2.score.scoreChance));
+		ChancecoreP2.add(new JLabel("" + Panel.score.scoreChance));
 		ChancecoreP2.setBackground(Color.cyan);
 		panel.add(ChancecoreP2);
 		
@@ -402,22 +362,20 @@ public class TestMain {
 		
 		JPanel YahtzeecoreYou = new JPanel();
 		YahtzeecoreYou.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		YahtzeecoreYou.add(new JLabel("" + Panel1.score.scoreYahtzee));
+		YahtzeecoreYou.add(p1yahtzeeLabel);
 		YahtzeecoreYou.setBackground(Color.cyan);
 		panel.add(YahtzeecoreYou);
 		
 		JPanel YahtzeecoreP2 = new JPanel();
 		YahtzeecoreP2.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		YahtzeecoreP2.add(new JLabel("" + Panel2.score.scoreYahtzee));
+		YahtzeecoreP2.add(new JLabel("" + Panel.score.scoreYahtzee));
 		YahtzeecoreP2.setBackground(Color.cyan);
-		panel.add(YahtzeecoreP2);*/
+		panel.add(YahtzeecoreP2);
 		
 		JPanel primary = new JPanel();
-		SlataSolution panel = new SlataSolution();
 		primary.setBackground(Color.white);
 		primary.add(playPanel);
 		primary.add(panel);
-		
 		
 		frame.getContentPane().add(primary);
 		frame.pack();
@@ -425,5 +383,112 @@ public class TestMain {
 		
 		
 	}
+	public static void P1SetScores(int D1, int D2, int D3, int D4, int D5)
+	{
+		;
+		Scoring p1score = new Scoring();
+		Scoring p2score = new Scoring();
+		int p1sumscore = 0, p2sumsscore=0;
 
+        
+		// calculate the scores of the rolls
+		p1score.Ones(D1, D2, D3, D4, D5);
+		p1score.Twos(D1, D2, D3, D4, D5);
+		p1score.Threes(D1, D2, D3, D4, D5);
+		p1score.Fours(D1, D2, D3, D4, D5);
+		p1score.Fives(D1, D2, D3, D4, D5);
+		p1score.Sixes(D1, D2, D3, D4, D5);
+		p1score.ThreeOAK(D1, D2, D3, D4, D5);
+		p1score.FourOAK(D1, D2, D3, D4, D5);
+		p1score.FullHouse(D1, D2, D3, D4, D5);
+		p1score.SS(D1, D2, D3, D4, D5);
+		p1score.LS(D1, D2, D3, D4, D5);
+		p1score.Yahtzee(D1, D2, D3, D4, D5);
+		p1score.Chance(D1, D2, D3, D4, D5);
+		//putClientProperty("myValue", myValue)
+		//getClientProperty("myValue")
+		//apply the scores to the labels
+		// Check to see if each value is set yet
+		if((boolean)p1oneslabel.getClientProperty("scoreNotSet")) {
+			p1oneslabel.setText("" + p1score.scoreOnes);
+		    p1oneslabel.putClientProperty("myValue",p1score.scoreOnes);
+		}
+		p1twoslabel.setText("" + p1score.scoreTwos);
+		p1threeslabel.setText("" + p1score.scoreThrees);
+		p1fourslabel.setText("" + p1score.scoreFours);
+		p1fiveslabel.setText("" + p1score.scoreFives);
+		p1sixeslabel.setText("" + p1score.scoreSixes);
+		p1threeOAKLabel.setText("" + p1score.scoreThreeOAK);
+		p1fourOAKLabel.setText("" + p1score.scoreFourOAK);
+		p1fullhouseLabel.setText("" + p1score.scoreFH);
+		p1ssLabel.setText("" + p1score.scoreSS);
+		p1lsLabel.setText("" + p1score.scoreLS);
+		p1yahtzeeLabel.setText("" + p1score.scoreYahtzee);
+		p1chanceLabel.setText("" + p1score.scoreChance);
+//		Font f = p1oneslabel.getFont();
+//		// bold
+//		p1oneslabel.setFont(f.deriveFont(f.getStyle() ^ Font.BOLD));
+//		label.setFont(f.deriveFont(f.getStyle() & ~Font.BOLD));
+//		label.setFont(f.deriveFont(f.getStyle() ^ Font.BOLD));
+
+		//calculate Total of top scores
+		// Need to change this.  should return the value from the object instead of the text using GetText()
+		p1sumscore=(int)p1oneslabel.getClientProperty("myValue") + p1score.scoreTwos + p1score.scoreThrees + p1score.scoreFours + p1score.scoreFives + p1score.scoreSixes;
+		p1sumsLabel.setText("" + p1sumscore);
+	
+		//System.out.println("" + D1 + "" + D2 + "" + D3 + "" + D4 + "" + D5 + "");*/
+	}
+	public static void P2SetScores(int D1, int D2, int D3, int D4, int D5)
+	{
+		;
+		Scoring p2score = new Scoring();
+		int p2sumscore = 0;
+
+        
+		// calculate the scores of the rolls
+		p2score.Ones(D1, D2, D3, D4, D5);
+		p2score.Twos(D1, D2, D3, D4, D5);
+		p2score.Threes(D1, D2, D3, D4, D5);
+		p2score.Fours(D1, D2, D3, D4, D5);
+		p2score.Fives(D1, D2, D3, D4, D5);
+		p2score.Sixes(D1, D2, D3, D4, D5);
+		p2score.ThreeOAK(D1, D2, D3, D4, D5);
+		p2score.FourOAK(D1, D2, D3, D4, D5);
+		p2score.FullHouse(D1, D2, D3, D4, D5);
+		p2score.SS(D1, D2, D3, D4, D5);
+		p2score.LS(D1, D2, D3, D4, D5);
+		p2score.Yahtzee(D1, D2, D3, D4, D5);
+		p2score.Chance(D1, D2, D3, D4, D5);
+		
+		//apply the scores to the labels
+		//build in smarts to check for "Locked" around each one
+		p2oneslabel.setText("" + p2score.scoreOnes);
+		p2twoslabel.setText("" + p2score.scoreTwos);
+		p2threeslabel.setText("" + p2score.scoreThrees);
+		p2fourslabel.setText("" + p2score.scoreFours);
+		p2fiveslabel.setText("" + p2score.scoreFives);
+		p2sixeslabel.setText("" + p2score.scoreSixes);
+		p2threeOAKLabel.setText("" + p2score.scoreThreeOAK);
+		p2fourOAKLabel.setText("" + p2score.scoreFourOAK);
+		p2fullhouseLabel.setText("" + p2score.scoreFH);
+		p2ssLabel.setText("" + p2score.scoreSS);
+		p2lsLabel.setText("" + p2score.scoreLS);
+		p2yahtzeeLabel.setText("" + p2score.scoreYahtzee);
+		p2chanceLabel.setText("" + p2score.scoreChance);
+	
+
+		//calculate Total of top scores
+		// Need to change this.  should return the value from the object instead of the text using GetText()
+		p2sumscore= p2score.scoreOnes + 
+				    p2score.scoreTwos + 
+				    p2score.scoreThrees + 
+				    p2score.scoreFours + 
+				    p2score.scoreFives + 
+				    p2score.scoreSixes;
+		p2sumsLabel.setText("" + p2sumscore);
+
+		
+				
+		//System.out.println("" + D1 + "" + D2 + "" + D3 + "" + D4 + "" + D5 + "");*/
+	}
 }

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.LayoutManager;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -23,7 +24,9 @@ public class SlataSolution extends JPanel
 		panel.setLayout(new GridLayout(0,3,0,0));
 		panel.setBorder(BorderFactory.createEmptyBorder(8,8,8,8));
 		panel.setBackground(Color.cyan);
-		panel.setPreferredSize(new Dimension(450, 1000));
+		//panel.setPreferredSize(new Dimension(450, 1000));
+		//panel.setLocation(1000, 0);
+		//this.setLayout(new GridLayout(0,3,0,0));
 		
 		Labels = new JLabel[54];
 		Panels = new JPanel[54];
@@ -32,12 +35,15 @@ public class SlataSolution extends JPanel
 			Labels[l] = new JLabel();	
 			
 		}
+		int x = 1000;
+		int y = 0;
 		for(int p = 0; p < Panels.length; p++)
 		{
 			Panels[p] = new JPanel();
 			Panels[p].setBorder(BorderFactory.createLineBorder(Color.white, 2));
 			Panels[p].setBackground(Color.cyan);
 			Panels[p].add(Labels[p]);
+			Panels[p].setLocation(x, y);
 			panel.add(Panels[p]);
 			
 		}
@@ -99,6 +105,7 @@ public class SlataSolution extends JPanel
 	}
 	public void paintComponent(Graphics g)
 	{
+		super.paintComponent(g);
 		Labels[4].setText("" + SPanel.score.scoreOnes);
 		Labels[5].setText("" + SPanel.score.scoreOnes);
 		Labels[7].setText("" + SPanel.score.scoreTwos);
@@ -131,6 +138,13 @@ public class SlataSolution extends JPanel
 		Labels[47].setText("" + SPanel.score.scoreYahtzee);
 		Labels[52].setText("" + SPanel.score.scoreTotal);
 		Labels[53].setText("" + + SPanel.score.scoreTotal);
+	
+		for(int p = 0; p < Panels.length; p++)
+		{
+			this.add(Panels[p]);
+		}
+		
+		
 	}
 
 }
