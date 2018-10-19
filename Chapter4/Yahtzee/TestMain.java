@@ -68,6 +68,7 @@ public class TestMain {
 		//ScoringPanel Panel = new ScoringPanel(playPanel.die6, playPanel.die7, playPanel.die8, playPanel.die9, playPanel.die10);
 		//public score = new Scoring();
 		JPanel panel = new JPanel();
+		panel.setPreferredSize(new Dimension(450,1000));
 		panel.setLayout(new GridLayout(0,3,0,0));
 		panel.setBorder(BorderFactory.createEmptyBorder(8,8,8,8));
 		panel.setBackground(Color.cyan);

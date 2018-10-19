@@ -9,32 +9,32 @@ public class KindCheck
 	{
 		kind = 0;
 		num = new NumCount(D1, D2, D3, D4, D5, 1);
-		if (num.count == Value)
+		if (num.count >= Value)
 		{
 			kind++;
 		}
 		num = new NumCount(D1, D2, D3, D4, D5, 2);
-		if (num.count == Value)
+		if (num.count >= Value)
 		{
 			kind++;
 		}
 		num = new NumCount(D1, D2, D3, D4, D5, 3);
-		if (num.count == Value)
+		if (num.count >= Value)
 		{
 			kind++;
 		}
 		num = new NumCount(D1, D2, D3, D4, D5, 4);
-		if (num.count == Value)
+		if (num.count >= Value)
 		{
 			kind++;
 		}
 		num = new NumCount(D1, D2, D3, D4, D5, 5);
-		if (num.count == Value)
+		if (num.count >= Value)
 		{
 			kind++;
 		}
 		num = new NumCount(D1, D2, D3, D4, D5, 6);
-		if (num.count == Value)
+		if (num.count >= Value)
 		{
 			kind++;
 		}				
