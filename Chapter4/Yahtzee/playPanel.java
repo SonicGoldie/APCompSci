@@ -17,7 +17,7 @@ public class playPanel extends JPanel{
 	int die1, die2, die3, die4, die5, die6, die7, die8, die9, die10;
 	int counter, o, x, y, db = 0;
 	Color color;
-	boolean player1 = false, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10;
+	boolean player1, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10;
 	boolean[] dnum;
 	
 	public playPanel() {
@@ -38,7 +38,7 @@ public class playPanel extends JPanel{
 		setPreferredSize(new Dimension(1000, 1000));
 		this.setBackground(Color.lightGray);
 		
-		//sets 
+		//sets gray squares
 		x = 200; y = 600;
 			
 		for(int s = 0; s < sq.length; s++) 
@@ -61,6 +61,8 @@ public class playPanel extends JPanel{
 				x = 200;
 			}
 		}
+		
+		//sets buttons
 		x = 200;
 		y = 300;
 		for(db = 0; db < diceButton.length; db++) 
@@ -138,11 +140,23 @@ public class playPanel extends JPanel{
 			dots[o] = new Circle(10, color, x, y);
 		}	
 			
-	
 		counter = 0;
 		roll.addActionListener(new ActionListener()		
 		{     	
 		public void actionPerformed(ActionEvent e){ 
+			
+			if(counter == 3) 
+			{
+				if(player1 == true)
+				{
+					player1 = false;
+				}
+				else
+				{
+					player1 = true;
+				}
+				counter = 0;
+			}
 			
 			if(player1 == true)
 			{
@@ -169,6 +183,14 @@ public class playPanel extends JPanel{
 			die5 = gen.nextInt(6)+1; 
 			}
 			
+			}
+			if(counter == 0)
+			{
+				d1 = false;
+				d2 = false;
+				d3 = false;
+				d4 = false;
+				d5 = false;
 			}
 			counter++;
 				
@@ -742,7 +764,7 @@ public class playPanel extends JPanel{
 			
 			if(player1 == false)
 			{
-			//if(counter < 3) {
+			if(counter < 3) {
 				
 			if(d6 == false) 
 			{
@@ -764,7 +786,15 @@ public class playPanel extends JPanel{
 			{
 			die10 = gen.nextInt(6)+1; 
 			}
-			//}
+			}
+			if(counter == 0)
+			{
+				d6 = false;
+				d7 = false;
+				d8 = false;
+				d9 = false;
+				d10 = false;
+			}
 			counter++;
 				
 				y = 600;
@@ -3691,3 +3721,5 @@ public class playPanel extends JPanel{
 	}
 	
 }
+
+

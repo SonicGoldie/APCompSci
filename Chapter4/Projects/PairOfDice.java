@@ -2,8 +2,8 @@ package Projects;
 
 public class PairOfDice {
 
-    private Die die1 = new Die();
-    private Die die2 = new Die();
+    private DieChapter5 die1 = new DieChapter5();
+    private DieChapter5 die2 = new DieChapter5();
 
     private int sum;
 

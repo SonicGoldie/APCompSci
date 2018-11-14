@@ -33,23 +33,26 @@ public class Magpie2
 	public String getResponse(String statement)
 	{
 		String response = "";
-		if (statement.indexOf("no") >= 0)
-		{
+		if (statement.contains(" no ")) {
 			response = "Why so negative?";
-		}
-		else if (statement.indexOf("mother") >= 0
-				|| statement.indexOf("father") >= 0
-				|| statement.indexOf("sister") >= 0
-				|| statement.indexOf("brother") >= 0)
-		{
+		} else if (statement.contains("mother") || statement.contains("father") || statement.contains("sister") || statement.contains("brother")) {
 			response = "Tell me more about your family.";
-		}
-		else
-		{
+			//First Keyword / Response
+		} else if (statement.contains("dog") || statement.contains("cat") || statement.contains("fish")) {
+		    response = "Please, tell me more about your pet.";
+		    //Second Keyword / Response
+        } else if (statement.contains("Harold")) {
+		    response = "He sounds like an annoying person";
+		    //Third Keyword / Response
+        } else if (statement.trim().length() == 0) {
+		    response = "Treat me like a person, don't just stand there all dumb...";
+        } else {
 			response = getRandomResponse();
 		}
 		return response;
 	}
+	
+	//There is nothing really to say back
 
 	/**
 	 * Pick a default response to use if nothing else fits.
@@ -81,4 +84,4 @@ public class Magpie2
 
 		return response;
 	}
-}
+}	

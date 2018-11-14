@@ -35,13 +35,14 @@ public class ScoringPanel extends JPanel
 		score.LS(D1, D2, D3, D4, D5);
 		score.Yahtzee(D1, D2, D3, D4, D5);
 		score.Chance(D1, D2, D3, D4, D5);
-		score.Sum(D1, D2, D3, D4, D5);
-		score.Bonus(D1, D2, D3, D4, D5);
-		score.Total(D1, D2, D3, D4, D5);
+		//score.Chance(D1, D2, D3, D4, D5);
+		//score.Sum(D1, D2, D3, D4, D5);
+		//score.Bonus(D1, D2, D3, D4, D5);
+		//score.Total(D1, D2, D3, D4, D5);
 		
 		
 		
-		System.out.println("" + D1 + "" + D2 + "" + D3 + "" + D4 + "" + D5 + "");
+		//System.out.println("" + D1 + "" + D2 + "" + D3 + "" + D4 + "" + D5 + "");
 				
 	}
 	
