@@ -4,8 +4,8 @@ public class FlipRace {
 
 	public static void main(String[] args) 
 	{
-		Coin Coin1 = new Coin();
-		Coin Coin2 = new Coin();
+		Coin6 Coin1 = new Coin6();
+		Coin6 Coin2 = new Coin6();
 		int count = 1;
 		int Headcount1 = 0;
 		int Headcount2 = 0;
