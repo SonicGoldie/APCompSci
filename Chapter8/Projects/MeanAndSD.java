@@ -30,7 +30,7 @@ public class MeanAndSD {
 			else
 				break;
 		}
-		System.out.println("Your numbers were: ");
+		/*System.out.println("Your numbers were: ");
 		for (int i = 0; i < input.length; i++)
 		{
 			int check = 0;
@@ -45,7 +45,7 @@ public class MeanAndSD {
 				check = 0;
 				i--;
 			}
-		}
+		}*/
 		System.out.println("Mean: " +getMean());
 		System.out.println("Standard Deviation: " + getSD());
 
