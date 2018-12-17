@@ -19,8 +19,8 @@ public class TestGradient extends JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         int w = getWidth();
         int h = getHeight();
-        Color color1 = Color.YELLOW;
-        Color color2 = Color.BLUE;
+        Color color1 = Color.green;
+        Color color2 = Color.cyan;
         GradientPaint gp = new GradientPaint(0, 0, color1, 0, h, color2);
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, w, h);

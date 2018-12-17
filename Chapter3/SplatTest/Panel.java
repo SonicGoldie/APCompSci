@@ -19,9 +19,13 @@ public class Panel extends JPanel {
 	
 	int pegs;
 	
+	int r, g, b;
+	Random rand = new Random();
+	
 	Random gen = new Random();
 	
-	public Panel() {		
+	public Panel() {
+		
 		
 		int x=0, y=120;
 		
@@ -198,7 +202,7 @@ public class Panel extends JPanel {
 			boolean topC3 = false, topC2 = false, topC1 = false, topC0 =false;
 			if (midC[next].getColor() == topC[3].getColor())
 			{
-				System.out.println("black peg");//I didn't want to actually make circles, but that could happen
+				//System.out.println("black peg");//I didn't want to actually make circles, but that could happen
 				topC3 = true;
 				midC3= true;
 				correct1 = true;
@@ -211,7 +215,7 @@ public class Panel extends JPanel {
 			
 			if (midC[next-1].getColor() == topC[2].getColor())
 			{
-				System.out.println("black peg");
+				//System.out.println("black peg");
 				topC2 = true;
 				midC2 = true;
 				correct2 = true;
@@ -223,7 +227,7 @@ public class Panel extends JPanel {
 			
 			if (midC[next-2].getColor() == topC[1].getColor())
 			{
-				System.out.println("black peg");
+				//System.out.println("black peg");
 				topC1 = true;
 				midC1 = true;
 				correct3 = true;
@@ -235,7 +239,7 @@ public class Panel extends JPanel {
 			
 			if (midC[next-3].getColor() == topC[0].getColor())
 			{
-				System.out.println("black peg");
+				//System.out.println("black peg");
 				topC0 = true;
 				midC0 = true;
 				correct4 = true;
@@ -247,7 +251,7 @@ public class Panel extends JPanel {
 	
 			if (midC[next].getColor() == topC[2].getColor() && topC2 == false && midC3 == false)
 			{
-				System.out.println("white peg");
+				//System.out.println("white peg");
 				topC2 = true;
 				midC3 = true;
 				//if (pegsC[next].getColor() == color.gray)
@@ -263,7 +267,7 @@ public class Panel extends JPanel {
 			}
 			if (midC[next-1].getColor() == topC[1].getColor() && topC1 == false && midC2 == false)
 			{
-				System.out.println("white peg");
+				//System.out.println("white peg");
 				topC1 = true;
 				midC2 = true;
 				pegGroup[currentpeg] = color.white;
@@ -271,7 +275,7 @@ public class Panel extends JPanel {
 			}
 			if (midC[next-2].getColor() == topC[0].getColor() && topC0 == false && midC1 == false)
 			{
-				System.out.println("white peg");
+				//System.out.println("white peg");
 				topC0= true;
 				midC1 = true;
 				pegGroup[currentpeg] = color.white;
@@ -279,7 +283,7 @@ public class Panel extends JPanel {
 			}
 			if (midC[next-3].getColor() == topC[3].getColor() && topC3 == false && midC0 == false)
 			{
-				System.out.println("white peg");
+				//System.out.println("white peg");
 				topC3 = true;
 				midC0 = true;
 				pegGroup[currentpeg] = color.white;
@@ -288,7 +292,7 @@ public class Panel extends JPanel {
 	
 			if (midC[next].getColor() == topC[1].getColor() && topC1 == false && midC3 == false)
 			{
-				System.out.println("white peg");
+				//System.out.println("white peg");
 				topC1 = true;
 				midC3 = true;
 				pegGroup[currentpeg] = color.white;
@@ -296,7 +300,7 @@ public class Panel extends JPanel {
 			}
 			if (midC[next-1].getColor() == topC[0].getColor() && topC0 == false && midC2 == false)
 			{
-				System.out.println("white peg");
+				//System.out.println("white peg");
 				topC0 = true;
 				midC2 = true;
 				pegGroup[currentpeg] = color.white;
@@ -304,7 +308,7 @@ public class Panel extends JPanel {
 			}
 			if (midC[next-2].getColor() == topC[3].getColor() && topC3 == false && midC1 == false)
 			{
-				System.out.println("white peg");
+				//System.out.println("white peg");
 				topC3= true;
 				midC1 = true;
 				pegGroup[currentpeg] = color.white;
@@ -312,7 +316,7 @@ public class Panel extends JPanel {
 			}
 			if (midC[next-3].getColor() == topC[2].getColor() && topC2 == false && midC0 == false)
 			{
-				System.out.println("white peg");
+				//System.out.println("white peg");
 				topC2 = true;
 				midC0 = true;
 				pegGroup[currentpeg] = color.white;
@@ -321,7 +325,7 @@ public class Panel extends JPanel {
 			
 			if (midC[next].getColor() == topC[0].getColor() && topC0 == false && midC3 == false )
 			{
-				System.out.println("white peg");
+				//System.out.println("white peg");
 				topC0 = true;
 				midC3 = true;
 				pegGroup[currentpeg] = color.white;
@@ -329,7 +333,7 @@ public class Panel extends JPanel {
 			}
 			if (midC[next-1].getColor() == topC[3].getColor() && topC3 == false && midC2 == false)
 			{
-				System.out.println("white peg");
+				//System.out.println("white peg");
 				topC3 = true;
 				midC2 = true;
 				pegGroup[currentpeg] = color.white;
@@ -337,7 +341,7 @@ public class Panel extends JPanel {
 			}
 			if (midC[next-2].getColor() == topC[2].getColor() && topC2 == false && midC1 == false)
 			{
-				System.out.println("white peg");
+				//System.out.println("white peg");
 				topC2= true;
 				midC1 = true;
 				pegGroup[currentpeg] = color.white;
@@ -345,7 +349,7 @@ public class Panel extends JPanel {
 			}
 			if (midC[next-3].getColor() == topC[1].getColor() && topC1 == false && midC0 == false)
 			{
-				System.out.println("white peg");
+				//System.out.println("white peg");
 				topC1 = true;
 				midC0 = true;
 				pegGroup[currentpeg] = color.white;
@@ -354,12 +358,12 @@ public class Panel extends JPanel {
 			
 			if (topC1 == false && topC2 == false && topC3 == false && topC0 == false)
 			{
-				System.out.println("nothing is correct"); // you can remove this too, idk if we need it
+				//System.out.println("nothing is correct"); // you can remove this too, idk if we need it
 			}
 			
 			if (correct1 == true && correct2 == true && correct3 == true && correct4 == true)
 			{
-				System.out.println("You win!!");
+				//System.out.println("You win!!");
 				for(int ist=0; ist<topS1.length; ist++)
 				{
 					
@@ -420,7 +424,36 @@ public class Panel extends JPanel {
 
 	public void paintComponent(Graphics page)
 	{
+		r = rand.nextInt(256);
+		g = rand.nextInt(256);
+		b = rand.nextInt(256);
+		
+		
+		
 		super.paintComponent(page);
+		Graphics2D g2d = (Graphics2D) page;
+        g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        int w = getWidth();
+        int h = getHeight();
+        Color color1 = new Color(r,g,b);
+        //System.out.println("Red1: " + r);
+        //System.out.println("Green1: " + g);
+        //System.out.println("Blue1: " + b);
+        
+        r = rand.nextInt(256);
+		g = rand.nextInt(256);
+		b = rand.nextInt(256);
+        
+        Color color2 = new Color(r,g,b);
+        GradientPaint gp = new GradientPaint(0, 0, color1, 0, h, color2);
+        g2d.setPaint(gp);
+        //g2d.setBackground(Color.green);
+        g2d.fillRect(0, 0, w, h);
+        //System.out.println("Red2: " + r);
+        //System.out.println("Green2: " + g);
+        //System.out.println("Blue2: " + b);
+        
+        
 	
 		circleButtonRed.draw(page);
 		circleButtonOrange.draw(page);
